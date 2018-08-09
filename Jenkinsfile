@@ -13,7 +13,7 @@
             }
   stage("Package") {
        steps {
-            sh "sudo docker run -d -p 8081:8081 nexus"
+            sh "sudo docker run -d -p 8081:8081 boobathi08/nexus"
        }
   }
   }
