@@ -13,7 +13,7 @@
             }
   stage("Package") {
        steps {
-            sh "docker run -itd -p 8081:8081 nexus"
+            sh "docker run -d -p 8081:8081 nexus"
        }
   }
   }
