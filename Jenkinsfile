@@ -5,7 +5,7 @@ pipeline {
             sh "wget https://download.sonatype.com/nexus/oss/nexus-2.14.8-01-bundle.tar.gz"
             sh "docker build -t boobathi08/nexus -f /var/lib/jenkins/workspace/docker-test/Dockerfile"
              }
-           }
+}
      stage("Docker push") {
      steps {
     sh "docker login -u username -p password"
