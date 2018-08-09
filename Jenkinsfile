@@ -1,12 +1,21 @@
-node {
-	stage("Docker build") {
-     		steps {
-	          	sh "wget https://download.sonatype.com/nexus/oss/nexus-2.14.8-01-bundle.tar.gz ."
-          		sh "docker build -t boobathi08/nexus ."
-		}
+pipeline {
+    agent any
+
+    stages {
+        stage('Build') {
+            steps {
+                echo 'Building..'
+            }
+        }
+        stage('Test') {
+            steps {
+                echo 'Testing..'
+            }
+        }
+        stage('Deploy') {
+            steps {
+                echo 'Deploying....'
+            }
+        }
     }
-	catch (err) {
-        currentBuild.result = 'FAILED'
-        throw err
-    }
-} 
+}
