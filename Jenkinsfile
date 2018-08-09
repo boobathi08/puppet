@@ -1,21 +1,20 @@
-pipeline {
-    agent any
-
-    stages {
-        stage('Build') {
-            steps {
-                echo 'Building project..'
+  pipeline {
+       agent any
+       stages {
+            stage("Compile") {
+                 steps {
+                      sh "wget https://download.sonatype.com/nexus/oss/nexus-2.14.8-01-bundle.tar.gz"
+                 }
             }
-        }
-        stage('Test') {
-            steps {
-                echo 'Testing project..'
+            stage("Unit test") {
+                 steps {
+                      sh "docker build -t boobathi08/nexus ."
+                 }
             }
-        }
-        stage('Deploy') {
-            steps {
-                echo 'Deploying project....'
-            }
-        }
-    }
-}
+  stage("Package") {
+       steps {
+            sh "docker run -itd -p 8081:8081 nexus"
+       }
+  }
+  }
+  }
