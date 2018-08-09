@@ -27,4 +27,4 @@ node {
         currentBuild.result = 'FAILED'
         throw err
     }
-} 
+}  
