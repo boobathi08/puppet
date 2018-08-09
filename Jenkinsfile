@@ -8,6 +8,7 @@ node {
         }
         stage ('Build') {
         	sh "echo 'shell scripts to build project...'"
+		sh "docker build -t nexus ."
         }
         stage ('Tests') {
 	        parallel 'static': {
