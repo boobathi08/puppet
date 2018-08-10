@@ -14,6 +14,7 @@
   stage("Package") {
        steps {
             sh "sudo docker run -d -p 8081:8081 boobathi08/nexus"
+            sh "sudo rm -rf nexus-2.14.8-01-bundle.tar.gz"
        }
   }
   }
